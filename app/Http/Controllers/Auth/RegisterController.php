@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Pembeli;
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +30,22 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/beranda';
+    //protected $redirectTo = '/beranda';
+
+    protected $redirectTo;
+
+    public function redirectTo()
+    {
+        $id_pembeli = Pembeli::select('id_pembeli')->where('user_id', Auth::user()->id)->value('id_pembeli');
+        if($id_pembeli == null){
+            $this->redirectTo = '/beranda/pembeli/create';
+            return $this->redirectTo;
+        } else{
+            $this->redirectTo = '/beranda';
+            return $this->redirectTo;
+        }
+    } 
+
 
     /**
      * Create a new controller instance.
