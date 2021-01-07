@@ -174,11 +174,15 @@ class ProdukController extends Controller
     {
         $data = Produk::find($id);
         if($data->delete()){
-            return redirect('admin/produk/index')
-            ->with(['success' => 'Produk berhasil dihapus']);
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil dihapus',
+            ]);
         }else{
-            return redirect('admin/produk/index')
-            ->with(['error' => 'Produk gagal dihapus']);
+            return response()->json([
+                'success' => false,
+                'message' => 'Data gagal dihapus',
+            ]);
         }
     }
 }

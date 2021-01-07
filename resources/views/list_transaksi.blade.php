@@ -33,22 +33,20 @@
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="tab-pane fade show active nowrap" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                          <br>
                         <br>
                         <br>
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+                        <div class="table-responsive pr-5">
+                            <table class="table" id="dataTable1" width="50%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
                                         <th>Pembeli</th>
                                         <th>Penerima</th>
-                                        <th>Provinsi.</th>
                                         <th>Kab.</th>
                                         <th>Kec.</th>
                                         <th>Alamat.</th>
-                                        <th>Kode Pos</th>
                                         <th>Telp. Penerima</th>
                                         <th>Total Transfer</th>
                                         <!-- <th>Status</th> -->
@@ -61,11 +59,9 @@
                                         <th>No.</th>
                                         <th>Pembeli</th>
                                         <th>Penerima</th>
-                                        <th>Provinsi.</th>
                                         <th>Kab.</th>
                                         <th>Kec.</th>
                                         <th>Alamat.</th>
-                                        <th>Kode Pos</th>
                                         <th>Telp. Penerima</th>
                                         <th>Total Transfer</th>
                                         <!-- <th>Status</th> -->
@@ -92,13 +88,6 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @if($row->provinsi == null)
-                                            kosong
-                                            @else
-                                            {{ $row->provinsi }}
-                                            @endif
-                                        </td>
-                                        <td>
                                             @if($row->kabupaten == null)
                                             kosong
                                             @else
@@ -117,13 +106,6 @@
                                             kosong
                                             @else
                                             {{ $row->alamat_pengiriman }}
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if($row->kode_pos == null)
-                                            kosong
-                                            @else
-                                            {{ $row->kode_pos }}
                                             @endif
                                         </td>
                                         <td>
@@ -146,10 +128,10 @@
                                         <td>{{ $row->tgl_transaksi }}</td>
                                         <td>
                                             <a href="{{ url('beranda/transaksi/detailcheckout', $row->id_transaksi) }}"
-                                                class="btn btn-success" data-toggle="tooltip"
+                                                class="btn btn-success btn-sm" data-toggle="tooltip"
                                                 title="Detail Data Transaksi"><i class="fa fa-eye"> Detail</i></a>
                                             <a href="{{ url('beranda/transaksi/bukti', $row->id_transaksi) }}"
-                                                class="btn btn-warning" data-toggle="tooltip"
+                                                class="btn btn-warning btn-sm" data-toggle="tooltip"
                                                 title="Upload Bukti Transaksi"><i class="fa fa-list"> Upload Bukti TF</i></a>
                                          
                                         </td>
@@ -276,7 +258,7 @@
                                         <td>{{ $row->tgl_transaksi }}</td>
                                         <td>
                                             <a href="{{ url('beranda/transaksi/detailcheckout', $row->id_transaksi) }}"
-                                                class="btn btn-success" data-toggle="tooltip"
+                                                class="btn btn-success btn-sm" data-toggle="tooltip"
                                                 title="Detail Data Transaksi"><i class="fa fa-eye"> Detail</i></a>
                                          
                                         </td>
@@ -403,10 +385,10 @@
                                         <td>{{ $row->tgl_transaksi }}</td>
                                         <td>
                                             <a href="{{ url('beranda/transaksi/detailcheckout', $row->id_transaksi) }}"
-                                                class="btn btn-success" data-toggle="tooltip"
+                                                class="btn btn-success btn-sm" data-toggle="tooltip"
                                                 title="Detail Data Transaksi"><i class="fa fa-eye"> Detail</i></a>
                                             <a href="{{ url('beranda/transaksi/terima', $row->id_transaksi) }}"
-                                                class="btn btn-primary" data-toggle="tooltip"
+                                                class="btn btn-primary btn-sm" data-toggle="tooltip"
                                                 title="Terima Paket"><i class="fa fa-list"> Terima</i></a>
                                          
                                         </td>
@@ -533,7 +515,7 @@
                                         <td>{{ $row->tgl_transaksi }}</td>
                                         <td>
                                             <a href="{{ url('beranda/transaksi/detailcheckout', $row->id_transaksi) }}"
-                                                class="btn btn-success" data-toggle="tooltip"
+                                                class="btn btn-success btn-sm" data-toggle="tooltip"
                                                 title="Detail Data Transaksi"><i class="fa fa-eye"> Detail</i></a>
                                          
                                         </td>

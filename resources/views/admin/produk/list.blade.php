@@ -91,23 +91,40 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-    $(".hapus").click(function(){
+$(".hapus").click(function () {
         var id = $(this).parents("tr").attr("id");
-        // console.log(id);
-        if(confirm('Yakin ingin menghapus data ?'))
-        {
-            $.ajax({
-               url: '/admin/produk/destroy/'+ id,
-               type: 'GET',
-               error: function() {
-                  alert('Something is wrong');
-               },
-               success: function(data) {
-                    $("#"+id).remove();
-                    alert("Data berhasil dihapus");  
-               }
-            });
-        }
-    });
+        swal({
+            title: "Hapus?",
+            text: "Konfirmasi perubahan data!",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Ya hapus!",
+            cancelButtonText: "Batal!",
+            reverseButtons: !0
+        }).then(function (e) {
+
+            if (e.value === true) {
+                $.ajax({
+                    url: '/admin/produk/destroy/'+ id,
+                    type: 'GET',
+                    dataType: 'JSON',
+                    success: function (results) {
+                        if (results.success === true) {
+                            $("#" + id).remove();
+                            swal("Done!", results.message, "success");
+                        }else {
+                            swal("Error!", results.message, "error");
+                        }
+                    }
+                });
+
+            } else {
+                e.dismiss;
+            }
+
+        }, function (dismiss) {
+            return false;
+        })
+    })  
 </script>
 @endsection

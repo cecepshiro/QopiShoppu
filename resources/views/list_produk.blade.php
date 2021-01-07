@@ -104,10 +104,12 @@
                 stok: stok,
                 harga: harga,
         }).then((response) => {
-            console.log(response);
-            alert('Produk berhasil ditambahkan ke keranjang')
+            // console.log(response);
+            // alert('Produk berhasil ditambahkan ke keranjang')
+            swal("Done!", 'Produk berhasil ditambahkan ke keranjang', "success");
         }, (error) => {
             console.log(error);
+            // swal("Done!", 'Silahkan login terlebih dahulu', "success");
             alert('Silahkan login terlebih dahulu');
             window.location.href = '/login';
         });        

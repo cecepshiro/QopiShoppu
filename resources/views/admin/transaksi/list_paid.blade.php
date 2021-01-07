@@ -94,11 +94,11 @@
                             </td>
                             <td>{{ $row->created_at }}</td>
                             <td>
-                                <a href="{{ url('admin/transaksi/detail', $row->id_transaksi) }}" class="btn btn-success"
+                                <a href="{{ url('admin/transaksi/detail', $row->id_transaksi) }}" class="btn btn-success btn-sm"
                                     data-toggle="tooltip" title="Detail Data Transaksi">Detail</a>
-                                    <a href="{{ url('admin/transaksi/download', $row->id_transaksi) }}" class="btn btn-warning"
+                                    <a href="{{ url('admin/transaksi/download', $row->id_transaksi) }}" class="btn btn-warning btn-sm"
                                     data-toggle="tooltip" title="Lihat Bukti Transfer">Bukti TF</a>
-                                     <a href="{{ url('admin/transaksi/kirim', $row->id_transaksi) }}" class="btn btn-primary"
+                                     <a href="{{ url('admin/transaksi/kirim', $row->id_transaksi) }}" class="btn btn-primary btn-sm"
                                     data-toggle="tooltip" title="Kirim Produk">Kirim</a>
                             </td>
                         </tr>

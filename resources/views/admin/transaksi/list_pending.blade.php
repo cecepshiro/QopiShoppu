@@ -94,7 +94,7 @@
                             </td>
                             <td>{{ $row->created_at }}</td>
                             <td>
-                                <a href="{{ url('admin/transaksi/detail', $row->id_transaksi) }}" class="btn btn-success"
+                                <a href="{{ url('admin/transaksi/detail', $row->id_transaksi) }}" class="btn btn-success btn-sm"
                                     data-toggle="tooltip" title="Detail Data Transaksi"><i class="fa fa-eye"> Detail</i></a>
                             </td>
                         </tr>

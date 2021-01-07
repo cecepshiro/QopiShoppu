@@ -21,6 +21,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/main_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/responsive.css') }}">
     
+     <!-- Sweetalert2 -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 </head>
 
 <body>
@@ -77,12 +80,31 @@
             </div>
             <nav class="menu_nav">
                 <ul class="menu_mm">
-                    <li class="menu_mm"><a href="index-2.html">home</a></li>
-                    <li class="menu_mm"><a href="#">woman</a></li>
-                    <li class="menu_mm"><a href="#">man</a></li>
-                    <li class="menu_mm"><a href="#">lookbook</a></li>
-                    <li class="menu_mm"><a href="blog.html">blog</a></li>
-                    <li class="menu_mm"><a href="contact.html">contact</a></li>
+                    @guest
+                    <li class="menu_mm"><a href="{{ route('login') }}">Masuk<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    <li class="menu_mm"><a href="{{ url('/beranda') }}">Beranda<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    <li class="menu_mm"><a href="{{ url('beranda/kategori') }}">Kategori<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    <li class="menu_mm"><a href="{{ url('beranda/produk') }}">Produk<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    @else
+                    <li class="menu_mm"><a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Keluar<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    <li class="menu_mm"><a href="{{ url('/') }}">Beranda<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    <li class="menu_mm"><a href="{{ url('beranda/kategori') }}">Kategori<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    <li class="menu_mm"><a href="{{ url('beranda/produk') }}">Produk<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    <?php
+                        $profil = DB::table('pembeli')->where('user_id', Auth::user()->id)->get();
+                    ?>
+                    @if(count($profil) > 0)
+                    <li class="menu_mm"><a href="{{ url('beranda/pembeli/detail/'.Auth::user()->id) }}">Profil<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    @else
+                     <li class="menu_mm"><a href="{{ url('beranda/pembeli/create') }}">Profil<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    @endif
+                    <li class="menu_mm"><a href="{{ url('beranda/transaksi/list') }}">Daftar Transaksi<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    @endif
                 </ul>
             </nav>
             <div class="menu_extra">

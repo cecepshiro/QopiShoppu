@@ -200,11 +200,16 @@ class KategoriController extends Controller
     {
         $data = Kategori::find($id);
         if($data->delete()){
-            return redirect('admin/kategori/index')
-            ->with(['success' => 'Kategori berhasil dihapus']);
+            SubKategori::where('id_kategori', $id)->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil dihapus',
+            ]);
         }else{
-            return redirect('admin/kategori/index')
-            ->with(['error' => 'Kategori gagal dihapus']);
+            return response()->json([
+                'success' => false,
+                'message' => 'Data gagal dihapus',
+            ]);
         }
     }
 
@@ -213,11 +218,15 @@ class KategoriController extends Controller
         $tmp = $id;
         $data = SubKategori::find($id);
         if($data->delete()){
-            return redirect('admin/kategori/detail_sub/'. $data['id_kategori'])
-            ->with(['success' => 'Sub Kategori berhasil dihapus']);
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil dihapus',
+            ]);
         }else{
-            return redirect('admin/kategori/detail_sub/'.  $data['id_kategori'])
-            ->with(['error' => 'Sub Kategori gagal dihapus']);
+            return response()->json([
+                'success' => false,
+                'message' => 'Data gagal dihapus',
+            ]);
         }
     }
 }

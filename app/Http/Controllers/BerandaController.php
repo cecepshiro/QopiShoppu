@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Produk;
 use App\Kategori;
 use App\SubKategori;
-use Illuminate\Support\Facades\Input;
 
 class BerandaController extends Controller
 {
@@ -66,7 +65,7 @@ class BerandaController extends Controller
     }
 
     //Halaman pencarian
-    public function cari()
+    public function cari(Request $request)
     {
         //deklarasi
         $result_kategori = [];
@@ -79,7 +78,7 @@ class BerandaController extends Controller
         $searching = [];
         $result_true = false;
         //Split keyword untuk dicari perkata
-        $keyword = Input::get('cari');
+        $keyword = $request->input('cari');
         $strArray = explode(" ", $keyword);
         //mencari keyword di kategori
         $tmp_produk = Produk::where('nama_produk','like', $keyword.'%')->get();

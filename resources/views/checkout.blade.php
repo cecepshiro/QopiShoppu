@@ -160,17 +160,31 @@
 
     function produkDelete(val1, val2) {
         var tmp_data = val1 + "-" + val2;
-        if (confirm('Yakin ingin membersihkan keranjang anda ?')) {
-            axios.get('/beranda/transaksi/destroy/' + tmp_data)
+        swal({
+            text: "Hapus dari keranjang belanja?",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Ya hapus",
+            cancelButtonText: "Tidak",
+            reverseButtons: !0
+        }).then(function (e) {
+
+            if (e.value === true) {
+                axios.get('/beranda/transaksi/destroy/' + tmp_data)
                 .then((response) => {
-                    alert("Produk berhasil dihapus dari keranjang");
+                    swal("Done!", response.message, "success");
                     window.location.reload();
                     // console.log(response);
                 }, (error) => {
                     // console.log(error);
                 });
+            } else {
+                e.dismiss;
+            }
 
-        }
+        }, function (dismiss) {
+            return false;
+        })
     }
 
     function ekspedisiUpdate(val1,val2) {
