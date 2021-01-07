@@ -124,4 +124,9 @@ class Transaksi extends Model
       ->where('transaksi.status', '1')
       ->get();
     }
+
+    //orm one to many -> data pembeli
+    public function pembeli(){
+      return $this->belongsTo('App\Pembeli');
+    }  
 }

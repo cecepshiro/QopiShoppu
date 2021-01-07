@@ -30,4 +30,9 @@ class Produk extends Model
       ->orWhere('produk.nama_produk','LIKE','%'.$data.'%')
       ->simplePaginate(9);
     }
+
+    //orm one to many -> data kategori
+    public function kategori(){
+      return $this->belongsTo('App\Kategori');
+    }
 }

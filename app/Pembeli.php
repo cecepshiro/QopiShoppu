@@ -31,5 +31,15 @@ class Pembeli extends Model
       ->where('pembeli.id_pembeli', $id)
       ->first();
     }
+
+    // orm one to one -> data user
+    public function user(){
+      return $this->hasOne('App\User');
+    }
+
+    //orm one to many -> data transaksi
+    public function transaksi(){
+      return $this->hasMany('App\Transaksi');
+    }   
 }
 
