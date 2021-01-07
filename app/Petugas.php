@@ -14,5 +14,9 @@ class Petugas extends Model
       'id_petugas','user_id','tempat_lahir','tgl_lahir','jk','no_hp','alamat','created_at','updated_at',
     ];
 
+    // orm one to one -> data user
+    public function user(){
+      return $this->hasOne('App\User');
+    }
     
 }

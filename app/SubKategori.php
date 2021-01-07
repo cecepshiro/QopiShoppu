@@ -13,4 +13,9 @@ class SubKategori extends Model
     protected $fillable = [
       'id_sub_kategori','id_kategori','sub_kategori','created_at','updated_at',
     ];
+
+    //orm one to many -> data kategori
+    public function kategori(){
+      return $this->belongsTo('App\Kategori');
+    }
 }

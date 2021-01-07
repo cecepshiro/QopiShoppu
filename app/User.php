@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // orm one to one -> data pembeli
+    public function pembeli(){
+        return $this->belongsTo('App\Pembeli');
+    }
+
+    // orm one to one -> data pembeli
+    public function petugas(){
+        return $this->belongsTo('App\Petugas');
+    }
 }
