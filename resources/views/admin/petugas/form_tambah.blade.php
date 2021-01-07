@@ -54,6 +54,11 @@
                     <div class="col-sm-12">
                         <input type="password" class="form-control" name="password_confirmation" required>
                     </div>
+                    @error('password_confirmation')
+                    <label for="inputPassword3" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </label>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-3 control-label">Level</label>

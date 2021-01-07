@@ -32,6 +32,13 @@ class PembeliController extends Controller
         ->with('data', $data);
     }
 
+    public function show_admin($id)
+    {
+        $data = Pembeli::getDetailPembeliById($id);
+        return view('admin.pembeli.detail')
+        ->with('data', $data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -129,11 +136,11 @@ class PembeliController extends Controller
         if($data->delete()){
             $data2 = User::find($tmp_id);
             $data2->delete();
-            return redirect('admin/pembeli/index')
+            return redirect('admin/pembeli/index_admin')
             ->with(['success' => 'Pembeli berhasil dihapus']);
             // print_r($tmp_id);
         }else{
-            return redirect('admin/pembeli/index')
+            return redirect('admin/pembeli/index_admin')
             ->with(['error' => 'Pembeli gagal dihapus']);
         }
     }

@@ -13,8 +13,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Detail Data Pembeli</h6>
         </div>
         <div class="card-body">
-            <form class="form-horizontal" method="POST" action="{{ url('admin/pembeli/store') }}"
-                enctype="multipart/form-data">
+            <form class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-3 control-label">Nama Pembeli</label>
@@ -60,7 +59,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-10">
-                            <a href="{{ url('admin/pembeli/index/') }}" class="btn btn-danger">Kembali</a>
+                            <a href="{{ url('admin/pembeli/index_admin/') }}" class="btn btn-danger">Kembali</a>
                         </div>
                     </div>
             </form>

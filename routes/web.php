@@ -71,6 +71,8 @@ Route::get('beranda/pembeli/detail/{id}', 'PembeliController@show');
 Route::get('beranda/pembeli/edit/{id}', 'PembeliController@edit');
 Route::post('beranda/pembeli/update/{id}', 'PembeliController@update');
 Route::get('admin/pembeli/destroy/{id}', 'PembeliController@destroy');
+Route::get('admin/pembeli/detail/{id}', 'PembeliController@show_admin');
+
 
 //Transaksi
 Route::get('admin/transaksi/index/', 'TransaksiController@index');
