@@ -62,6 +62,8 @@ class TransaksiController extends Controller
         $result = $kode;
 
         $total = $request->harga * $request->stok;
+
+        //harus punya profile dahulu
         $id_pembeli = Pembeli::select('id_pembeli')->where('user_id', Auth::user()->id)->value('id_pembeli');
         //menampung status transaksi
         $tmp_status = Transaksi::where('id_pembeli', $id_pembeli)->get();
@@ -70,6 +72,8 @@ class TransaksiController extends Controller
         $tmp_total = 0;
         if($tmp_status->isEmpty()){
             $tmp = "0";
+            $tmp_id = $result;
+            $tmp_total = $total;
         }else{
             foreach($tmp_status as $row){
                 if($row->status == '0'){
@@ -86,54 +90,60 @@ class TransaksiController extends Controller
             }
         }
 
-        $tmp = 0;
-
         // return $tmp;
         // //jika transaksi masih belum dibayar,produk akan terus dimasukan ke id yg sama
         if($tmp == "0")
         {
-            //Simpan Cart
-            $data = Transaksi::where('id_transaksi', $tmp_id)->first();
-            // $data->id_transaksi = $result;
-            // $data->id_pembeli =  $id_pembeli;
-            $data->total_harga =  ($tmp_total + $total);
-            $data->status =  '0';
-            if($data->save()){
-                //cek jika produk yang dimasukan sama, hanya mengupdate qty nya saja
-                $status = DetailTransaksi::where('id_transaksi', $tmp_id)->where('id_produk', $request->id_produk)->get();
-                $tmp_detail_transaksi = DetailTransaksi::where('id_transaksi', $tmp_id)->where('id_produk', $request->id_produk)->first();
-                if(count($status) > 0){
-                    $data2 = DetailTransaksi::where('id_detail_transaksi', $tmp_detail_transaksi['id_detail_transaksi'])->first();
-                    // $data2->id_transaksi = $tmp_id;
-                    // $data2->id_produk = $request->id_produk;
-                    $data2->qty = $tmp_detail_transaksi['qty'] + $request->stok;
-                    $data2->subtotal = $tmp_detail_transaksi['subtotal'] + $total;
-                    if($data2->save()){
-                        $data3 = Produk::where('id_produk', $data2->id_produk)->first();
-                        $data3->stok =  ($data3['stok'] - $request->stok);
-                        $data3->save();
-                        return $data2;
-                    }
+            //Cek kondisi table trx apabila data kosong sama sekali
+            $cekData = Transaksi::where('id_transaksi', $tmp_id)->first();
+            if($cekData == null){
+                //Simpan Cart
+                $data = new Transaksi;
+                $data->id_transaksi = $result;
+                $data->id_pembeli =  $id_pembeli;
+                $data->total_harga =  $total;
+                $data->status =  '0';
+                $data->save();
+            }else{
+                //Simpan Cart
+                $data = Transaksi::where('id_transaksi', $tmp_id)->first();
+                $data->total_harga =  ($tmp_total + $total);
+                $data->status =  '0';
+                $data->save();
+            }
+            
+            //cek jika produk yang dimasukan sama, hanya mengupdate qty nya saja
+            $status = DetailTransaksi::where('id_transaksi', $tmp_id)->where('id_produk', $request->id_produk)->get();
+            $tmp_detail_transaksi = DetailTransaksi::where('id_transaksi', $tmp_id)->where('id_produk', $request->id_produk)->first();
+            if(count($status) > 0){
+                $data2 = DetailTransaksi::where('id_detail_transaksi', $tmp_detail_transaksi['id_detail_transaksi'])->first();
+                // $data2->id_transaksi = $tmp_id;
+                // $data2->id_produk = $request->id_produk;
+                $data2->qty = $tmp_detail_transaksi['qty'] + $request->stok;
+                $data2->subtotal = $tmp_detail_transaksi['subtotal'] + $total;
+                if($data2->save()){
+                    $data3 = Produk::where('id_produk', $data2->id_produk)->first();
+                    $data3->stok =  ($data3['stok'] - $request->stok);
+                    $data3->save();
+                    return $data2;
                 }
-                //jika produk tidak sama
-                elseif(count($status) < 1){
-                    $data2 = new DetailTransaksi;
-                    $data2->id_transaksi = $tmp_id;
-                    $data2->id_produk = $request->id_produk;
-                    $data2->qty = $request->stok;
-                    $data2->subtotal = $total;
-                    if($data2->save()){
-                        $data3 = Produk::where('id_produk', $data2->id_produk)->first();
-                        $data3->stok =  ($data3['stok'] - $data2->qty);
-                        $data3->save();
-                        return $data3;
-                    }
+            }
+            //jika produk tidak sama
+            elseif(count($status) < 1){
+                $data2 = new DetailTransaksi;
+                $data2->id_transaksi = $tmp_id;
+                $data2->id_produk = $request->id_produk;
+                $data2->qty = $request->stok;
+                $data2->subtotal = $total;
+                if($data2->save()){
+                    $data3 = Produk::where('id_produk', $data2->id_produk)->first();
+                    $data3->stok =  ($data3['stok'] - $data2->qty);
+                    $data3->save();
+                    return $data3;
                 }
-                
             }else{
                     return 'error';
             }
-
         }
         //jika transaksi telah dbayar, maka produk akan masuk ke id yang baru
         elseif($tmp == "2" || $tmp == "3" || $tmp == "4")
