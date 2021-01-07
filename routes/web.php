@@ -115,3 +115,6 @@ Auth::routes();
 Route::get('beranda/daerah/provinsi', 'DaerahController@selectProvinsi');
 Route::get('beranda/daerah/kabupaten/{id}', 'DaerahController@selectKabupaten');
 Route::get('beranda/daerah/kecamatan/{id}', 'DaerahController@selectKecamatan');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
