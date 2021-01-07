@@ -58,7 +58,7 @@ class PembeliController extends Controller
         $data->no_hp = $request->no_hp;
         $data->alamat = $request->alamat;
    		if($data->save()){
-            return redirect('beranda/pembeli/show/'.Auth::user()->id)
+            return redirect('beranda/pembeli/detail/'.Auth::user()->id)
             ->with(['success' => 'Pembeli berhasil ditambahkan']);
         }else{
             return redirect('beranda/pembeli/index')
