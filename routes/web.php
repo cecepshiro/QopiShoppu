@@ -109,12 +109,7 @@ Route::post('detailtransaksi/update/{id}', 'DetailTransaksiController@update');
 Route::get('detailtransaksi/destroy/{id}', 'DetailTransaksiController@destroy');
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
 //Daerah
 Route::get('beranda/daerah/provinsi', 'DaerahController@selectProvinsi');
 Route::get('beranda/daerah/kabupaten/{id}', 'DaerahController@selectKabupaten');
 Route::get('beranda/daerah/kecamatan/{id}', 'DaerahController@selectKecamatan');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

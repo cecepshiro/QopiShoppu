@@ -68,19 +68,25 @@ class TransaksiController extends Controller
         $tmp = "";
         $tmp_id = "";
         $tmp_total = 0;
-        foreach($tmp_status as $row){
-            if($row->status == '0'){
-                $tmp = "0";
-                $tmp_id = $row->id_transaksi;
-                $tmp_total = $row->total_harga;
-            }elseif($row->status == '2'){
-                $tmp = "2";
-            }elseif($row->status == '3'){
-                $tmp = "3";
-            }elseif($row->status == '4'){
-                $tmp = "4";
+        if($tmp_status->isEmpty()){
+            $tmp = "0";
+        }else{
+            foreach($tmp_status as $row){
+                if($row->status == '0'){
+                    $tmp = "0";
+                    $tmp_id = $row->id_transaksi;
+                    $tmp_total = $row->total_harga;
+                }elseif($row->status == '2'){
+                    $tmp = "2";
+                }elseif($row->status == '3'){
+                    $tmp = "3";
+                }elseif($row->status == '4'){
+                    $tmp = "4";
+                }
             }
         }
+
+        $tmp = 0;
 
         // return $tmp;
         // //jika transaksi masih belum dibayar,produk akan terus dimasukan ke id yg sama
