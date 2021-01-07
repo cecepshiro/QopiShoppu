@@ -22,6 +22,10 @@
     <link href="{{ asset('assets_dashboard/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <!-- datatable -->
     <link href="{{ asset('assets_dashboard/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+   
+   <!-- Sweetalert2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 </head>
 
 <body id="page-top">

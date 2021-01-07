@@ -20,9 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/OwlCarousel2-2.2.1/animate.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/main_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/responsive.css') }}">
-    <!-- //login style -->
-    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/checkout_responsive.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/checkout.css') }}"> -->
+    
 </head>
 
 <body>

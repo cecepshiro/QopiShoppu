@@ -118,11 +118,15 @@ class PetugasController extends Controller
     {
         $data = User::find($id);
         if($data->delete()){
-            return redirect('admin/petugas/index')
-            ->with(['success' => 'Petugas berhasil dihapus']);
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil dihapus',
+            ]);
         }else{
-            return redirect('admin/petugas/index')
-            ->with(['error' => 'Petugas gagal dihapus']);
+            return response()->json([
+                'success' => false,
+                'message' => 'Data gagal dihapus',
+            ]);
         }
     }
 }

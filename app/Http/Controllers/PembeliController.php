@@ -136,12 +136,15 @@ class PembeliController extends Controller
         if($data->delete()){
             $data2 = User::find($tmp_id);
             $data2->delete();
-            return redirect('admin/pembeli/index_admin')
-            ->with(['success' => 'Pembeli berhasil dihapus']);
-            // print_r($tmp_id);
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil dihapus',
+            ]);
         }else{
-            return redirect('admin/pembeli/index_admin')
-            ->with(['error' => 'Pembeli gagal dihapus']);
+            return response()->json([
+                'success' => false,
+                'message' => 'Data gagal dihapus',
+            ]);
         }
     }
 }
