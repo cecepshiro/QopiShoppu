@@ -19,7 +19,7 @@ Anggota :
 
 Tema Project : 
 
-- [Sistem Penjualan Online Toko Kopi Kopiqu](https://kopiqu.compunerds.id).
+- [Sistem Penjualan Online Toko Kopi Kopiqu](http://kopiqu.compunerds.id).
 
 Kopiqu adalah sebuah sistem toko online yang memiliki beberapa fitur :
 
@@ -39,13 +39,13 @@ Kopiqu adalah sebuah sistem toko online yang memiliki beberapa fitur :
 
 Link demo penjelasan isi project (ERD, Template, dan Demo Web)
 
-- [Link Demo](https://kopiqu.compunerds.id).
+- [Link Demo](http://kopiqu.compunerds.id).
 
 ## Link Deploy
 
 Tugas dideploy menggunakan hosting pribadi
 
-- [kopiqu.compunerds.id](https://kopiqu.compunerds.id).
+- [kopiqu.compunerds.id](http://kopiqu.compunerds.id).
 
 ## License
 
