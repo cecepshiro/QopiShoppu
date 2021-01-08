@@ -19,7 +19,7 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $data = Produk::getDetailProduk();
+        $data = Produk::all();
         return view('admin.produk.list')
         ->with('data', $data);
     }

@@ -32,7 +32,7 @@
                                     <div>
 
                                         <label for="checkout_company">Nama</label>
-                                        <input type="text" id="penerima" value="{{ Auth::user()->name }}"  disabled name="penerima" class="checkout_input">
+                                        <input type="text" id="penerima" value="{{ $data->user->name }}"  disabled name="penerima" class="checkout_input">
                                     </div>
                                     <div>
 

@@ -28,7 +28,7 @@
                             <select class="form-control" disabled name="id_kategori" required>
                                 <option value="">Pilih Kategori</option>
                                 @foreach($kategori as $row)
-                                     <option <?php if($data['id_kategori']== $row->id_kategori){ echo"selected"; } ?> value="{{ $row->id_kategori }}">{{ $row->nama_kategori }}</option>
+                                     <option <?php if($data['id_kategori']== $row->id_kategori){ echo"selected"; } ?> value="{{ $row->id_kategori }}">{{ $data->kategori->nama_kategori }}</option>
                                 @endforeach
                             </select>
                         </div>

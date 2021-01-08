@@ -16,11 +16,11 @@ class DetailTransaksi extends Model
 
     //orm many to many -> data transaksi
     public function transaksi(){
-     return $this->belongsToMany('App\Transaksi');
+     return $this->belongsTo('App\Transaksi', 'id_transaksi');
     } 
 
     //orm many to many -> data produk
     public function produk(){
-     return $this->belongsToMany('App\Produk');
+     return $this->belongsTo('App\Produk', 'id_produk');
     }
 }

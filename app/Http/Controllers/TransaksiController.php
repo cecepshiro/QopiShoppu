@@ -25,7 +25,7 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $data = Transaksi::getDetailTransaksi();
+        $data = Transaksi::all();
         return view('admin.transaksi.list')
         ->with('data', $data);
     }
@@ -181,7 +181,7 @@ class TransaksiController extends Controller
      */
     public function show($id)
     {
-        $data = Transaksi::getDetailTransaksiById($id);
+        $data = Transaksi::find($id);
         return view('admin.transaksi.detail')
         ->with('data', $data)
         ->with('kode', $id);
@@ -417,28 +417,28 @@ class TransaksiController extends Controller
 
     public function pending()
     {
-       $data = Transaksi::pending();
+       $data = Transaksi::all();
         return view('admin.transaksi.list_pending')
         ->with('data', $data);
     }
 
     public function paid()
     {
-       $data = Transaksi::paid();
+       $data = Transaksi::all();
         return view('admin.transaksi.list_paid')
         ->with('data', $data);
     }
 
      public function shipped()
     {
-       $data = Transaksi::shipped();
+       $data = Transaksi::all();
         return view('admin.transaksi.list_shipped')
         ->with('data', $data);
     }
 
      public function done()
     {
-       $data = Transaksi::done();
+       $data = Transaksi::all();
         return view('admin.transaksi.list_done')
         ->with('data', $data);
     }

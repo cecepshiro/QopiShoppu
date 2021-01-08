@@ -33,6 +33,10 @@ class Produk extends Model
 
     //orm one to many -> data kategori
     public function kategori(){
-      return $this->belongsTo('App\Kategori');
+      return $this->belongsTo('App\Kategori', 'id_kategori');
+    }
+
+    public function detail(){
+      return $this->hasMany('App\DetailTransaksi', 'id_produk');
     }
 }

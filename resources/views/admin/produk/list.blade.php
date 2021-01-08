@@ -66,7 +66,7 @@
                         <tr id="{{ $row->id_produk }}">
                             <td>{{ $no }}</td>
                             <td>{{ $row->nama_produk }}</td>
-                            <td>{{ $row->nama_kategori }}</td>
+                            <td>{{ $row->kategori->nama_kategori }}</td>
                             <td>{{ $row->harga }}</td>
                             <td>{{ $row->berat }}</td>
                             <td>{{ $row->stok }}</td>

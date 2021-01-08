@@ -39,11 +39,11 @@ class User extends Authenticatable
 
     // orm one to one -> data pembeli
     public function pembeli(){
-        return $this->belongsTo('App\Pembeli');
+        return $this->hasOne('App\Pembeli', 'user_id');
     }
 
-    // orm one to one -> data pembeli
+    // orm one to one -> data petugas
     public function petugas(){
-        return $this->belongsTo('App\Petugas');
+        return $this->hasOne('App\Petugas', 'user_id');
     }
 }

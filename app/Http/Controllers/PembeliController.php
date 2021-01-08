@@ -27,7 +27,7 @@ class PembeliController extends Controller
 
     public function index_admin()
     {
-        $data = Pembeli::getDetailPembeli();
+        $data = Pembeli::all();
         return view('admin.pembeli.list')
         ->with('data', $data);
     }
@@ -81,7 +81,7 @@ class PembeliController extends Controller
      */
     public function show($id)
     {
-        $data = Pembeli::where('user_id',$id)->first();
+        $data = Pembeli::all()->where('user_id',$id)->first();
         return view('biodata_detail')
         ->with('data', $data);
     }

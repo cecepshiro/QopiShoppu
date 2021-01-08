@@ -16,11 +16,11 @@ class Kategori extends Model
 
     //orm one to many -> data produk
     public function produk(){
-      return $this->hasMany('App\Produk');
+      return $this->hasMany('App\Produk', 'id_kategori');
     }
 
     //orm one to many -> data sub_kategori
     public function sub_kategori(){
-      return $this->hasMany('App\SubKategori');
+      return $this->hasMany('App\SubKategori', 'id_kategori');
     }    
 }

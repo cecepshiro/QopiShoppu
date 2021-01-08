@@ -55,13 +55,13 @@
                         <?php
                             $no = 0;
                         ?>
-                        @foreach($data as $row)
+                        @foreach($data->detail as $row)
                         <?php
                             $no++;
                         ?>
                         <tr id="{{ $row->id_detailtransaksi }}">
                             <td>{{ $no }}</td>
-                            <td>{{ $row->nama_produk }}</td>
+                            <td>{{ $row->produk->nama_produk }}</td>
                             <td>{{ $row->qty }}</td>
                             <td>{{ $row->subtotal }}</td>
                             <!-- <td>

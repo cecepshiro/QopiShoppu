@@ -16,7 +16,7 @@ class Petugas extends Model
 
     // orm one to one -> data user
     public function user(){
-      return $this->hasOne('App\User');
+      return $this->belongsTo('App\User');
     }
     
 }

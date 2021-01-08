@@ -212,7 +212,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Cecep Saefudin 2020</span>
+                        <span>Copyright &copy; Kelompok 11 - 2021</span>
                     </div>
                 </div>
             </footer>

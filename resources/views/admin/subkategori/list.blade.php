@@ -59,7 +59,7 @@
                         <tr id="{{ $row->id_sub_kategori }}">
                             <td>{{ $no }}</td>
                             <td>{{ $row->sub_kategori }}</td>
-                            <td>{{ $row->nama_kategori }}</td>
+                            <td>{{ $row->kategori->nama_kategori }}</td>
                             <td>
                                 <a href="{{ url('admin/kategori/edit_sub', $row->id_sub_kategori) }}" class="btn btn-warning"
                                     data-toggle="tooltip" title="Ubah Data ini"><i class="fa fa-edit"></i></a>

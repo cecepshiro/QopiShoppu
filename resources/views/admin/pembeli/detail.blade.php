@@ -18,13 +18,13 @@
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-3 control-label">Nama Pembeli</label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" value="{{ $data['name'] }}" name="name" disabled autofocus required>
+                            <input type="text" class="form-control" value="{{ $data->user->name }}" name="name" disabled autofocus required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-3 control-label">Email</label>
                         <div class="col-sm-12">
-                            <input type="email" class="form-control" value="{{ $data['email'] }}" name="email" disabled required>
+                            <input type="email" class="form-control" value="{{ $data->user->email }}" name="email" disabled required>
                         </div>
                     </div>
                     <div class="form-group">

@@ -75,7 +75,7 @@
                         ?>
                         <tr id="{{ $row->id_transaksi }}">
                             <td>{{ $no }}</td>
-                            <td>{{ $row->name }}</td>
+                            <td>{{ $row->pembeli->user->name }}</td>
                             <td>{{ $row->penerima }}</td>
                             <td>{{ $row->provinsi }}</td>
                             <td>{{ $row->kabupaten }}</td>

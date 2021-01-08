@@ -16,6 +16,6 @@ class SubKategori extends Model
 
     //orm one to many -> data kategori
     public function kategori(){
-      return $this->belongsTo('App\Kategori');
+      return $this->belongsTo('App\Kategori', 'id_kategori');
     }
 }

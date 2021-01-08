@@ -102,7 +102,7 @@ class KategoriController extends Controller
 
     public function show_sub($id)
     {
-        $data = SubKategori::join('kategori','sub_kategori.id_kategori','=','kategori.id_kategori')->where('sub_kategori.id_kategori',$id)->get();
+        $data = SubKategori::all()->where('id_kategori',$id);
         return view('admin.subkategori.list')
         ->with('data', $data);
     }

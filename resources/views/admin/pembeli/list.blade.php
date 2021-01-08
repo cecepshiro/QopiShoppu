@@ -63,7 +63,7 @@
                         ?>
                         <tr id="{{ $row->id_pembeli }}">
                             <td>{{ $no }}</td>
-                            <td>{{ $row->name }}</td>
+                            <td>{{ $row->user->name }}</td>
                             <td>{{ $row->tempat_lahir }}</td>
                             <td>{{ $row->jk }}</td>
                             <td>{{ $row->no_hp }}</td>

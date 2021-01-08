@@ -127,6 +127,16 @@ class Transaksi extends Model
 
     //orm one to many -> data pembeli
     public function pembeli(){
-      return $this->belongsTo('App\Pembeli');
-    }  
+      return $this->belongsTo('App\Pembeli', 'id_pembeli');
+    }
+    
+    //orm many to many -> data detail transaksi
+    public function detail_transaksi(){
+      return $this->belongsToMany('App\Produk', 'detailtransaksi', 'id_transaksi', 'id_produk');
+    }
+    
+    //orm many to many -> data detail transaksi
+    public function detail(){
+      return $this->hasMany('App\DetailTransaksi', 'id_transaksi');
+    }
 }
