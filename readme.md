@@ -24,12 +24,16 @@ Tema Project :
 Kopiqu adalah sebuah sistem toko online yang memiliki beberapa fitur :
 
 - Mengelola data pegawai / admin dengan banyak role
+  1. Admin prosesor - Memproses pesanan berbayar yang dibuat oleh pelanggan.
+  2. Manager Inventaris - Mengelola produk dan stok.
+  3. Manager Operasi - Mengawasi semua operasi.
 - Mengelola data pembeli
 - Mengelola data kategori
 - Mengelola data sub kategori
 - Mengelola data produk
+- Mengelola transaksi pembelian
 - Mengelola transaksi penjualan
-- Mengelola simulasi untuk pembayaran
+- Mengelola simulasi untuk pembayaran / konfirmasi pembayaran
 
 ## Link Demo
 
