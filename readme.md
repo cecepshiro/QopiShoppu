@@ -40,7 +40,7 @@ Kopiqu adalah sebuah sistem toko online yang memiliki beberapa fitur :
 
 Link demo penjelasan isi project (ERD, Template, dan Demo Web)
 
-- [Link Demo](http://kopiqu.compunerds.id).
+- [Link Demo](https://drive.google.com/file/d/1l1iQolEciMmCAw0SHUIbWYydxKJzOI3y/view?usp=sharing).
 
 ## Link Deploy
 
