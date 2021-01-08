@@ -9,15 +9,27 @@
 
 ## Informasi Kelompok
 
+Nomor Kelompok :
+- Kelompok 11
 
-Biodata Kelompok 11
+Anggota :
 
 - [Cecep Saefudin](https://github.com/cecepshiro).
 - [Iqbal Zulfikar](https://github.com/iqbaloid).
 
-Judul Project : 
+Tema Project : 
 
 - [Sistem Penjualan Online Toko Kopi Kopiqu](https://kopiqu.compunerds.id).
+
+Kopiqu adalah sebuah sistem toko online yang memiliki beberapa fitur :
+
+- Mengelola data pegawai / admin dengan banyak role
+- Mengelola data pembeli
+- Mengelola data kategori
+- Mengelola data sub kategori
+- Mengelola data produk
+- Mengelola transaksi penjualan
+- Mengelola simulasi untuk pembayaran
 
 ## Link Demo
 
